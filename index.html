@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHS Tag Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/f71a8a98c6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <img id="logo" alt="GHS logo" src="images/logo.svg" />
+        <div class="controls">
+            <ul class="control-list">
+                <li class="control"><a id="print" href="#"><i class="fas fa-print"></i>Print</a></li>
+                <li class="control"><a id="reset" href="#"><i class="fas fa-undo"></i>Reset</a></li>
+
+            </ul>
+        </div>
+    </header>
+    <main class="container is-main">
+        <section class="form-wrapper">
+            <form id="hazardsForm">
+                <div class="form-subsection">
+                    <h1>Substance Information</h1>
+                    <label>
+                        <span>Concentration Amount</span>
+                        <input type="text" name="amount" placeholder="Example: 10" />
+                    </label>
+                    <div id="unitsMenu">
+                        <span class="units selected">Units</span>
+                        <ul class="menu">
+                            <li class="units M">M</li>
+                            <li class="units milliM">mM</li>
+                            <li class="units microM">µM</li>
+                            <li class="units percent">%</li>
+                            <li class="units NA">N/A</li>
+                        </ul>
+                    </div>
+                    <label>
+                        <span>Full Name of Substance</span>
+                        <input type="text" name="chemicalName" placeholder="Example: Hydrochloric Acid" />
+                    </label>
+                    <label>
+                        <span>Molecular Formula</span>
+                        <input type="text" name="formula" placeholder="Example: C6H12O6" value='' />
+                    </label>
+                    <label>
+                        <span>Initials of Generator</span>
+                        <input type="text" name="generator" placeholder="Example: MSG" value='' />
+                    </label>
+                    <label>
+                        <span>Date of Generation</span>
+                        <input type="text" name="date" placeholder="Example: MM/DD/YY" value='' />
+                    </label>
+                </div>
+                <div class="form-subsection">
+                    <h1>Hazard(s)</h1>
+                    <div class="radio-buttons">
+                        <label><input type="radio" name="hazard-type" value="none" checked/><span>None</span></label>
+                        <label><input type="radio" name="hazard-type" value="warning" /><span>Warning!</span></label>
+                        <label><input type="radio" name="hazard-type" value="danger" /><span>Danger!</span></label>
+                    </div>
+                    <ul class="hazards-list">
+                        <li class="hazard corrosive" ><img class="hazard-icon"src="images/hazard-corrosive.png" alt="corrosive hazard icon" /><span class="hazard-type">Corrosive</span></li>
+                        <li class="hazard environment" ><img class="hazard-icon" src="images/hazard-environment.png" alt="environmental hazard icon" /><span class="hazard-type">Environmental</span></li>
+                        <li class="hazard explosive"><img class="hazard-icon" src="images/hazard-explosive.png" alt="explosive hazard icon" /><span class="hazard-type">Explosive</span></li>
+                        <li class="hazard flammable"><img class="hazard-icon" src="images/hazard-flammable.png" alt="flammable hazard icon" /><span class="hazard-type">Flammable</span></li>
+                        <li class="hazard gas"><img class="hazard-icon" src="images/hazard-gas.png" alt="gas hazard icon" /><span class="hazard-type">Gas</span></li>
+                        <li class="hazard health"><img class="hazard-icon" src="images/hazard-health.png" alt="health hazard icon" /><span class="hazard-type">Health</span></li>
+                        <li class="hazard irritant"><img class="hazard-icon" src="images/hazard-irritant.png" alt="irritant hazard icon" /><span class="hazard-type">Irritant</span></li>
+                        <li class="hazard oxidizer"><img class="hazard-icon" src="images/hazard-oxidizer.png" alt="oxidizer hazard icon" /><span class="hazard-type">Oxidizer</span></li>
+                        <li class="hazard toxic"><img class="hazard-icon" src="images/hazard-toxic.png" alt="toxic hazard icon" /><span class="hazard-type">Toxic</span></li>
+                    </ul>
+                </div>
+                <div class="form-subsection">
+                    <h1>NFPA Safety Diamond</h1>
+                    <div class="safety-diamond-categories">
+                        <label><span>Health Rating</span><input type="number" min="0" name="health" value="0"/></label>
+                        <label><span>Flammability Rating</span><input type="number" min="0" name="flammability" value="0"/></label>
+                        <label><span>Reactivity Rating</span><input type="number" min="0" name="reactivity" value="0"/></label>
+                        <ul class="specific-hazards">
+                            <li class="hazard"><img class="hazard-icon" id="acid" src="images/diamond-icon-acid.png" alt="acid hazard icon" /></li>
+                            <li class="hazard"><img class="hazard-icon" id="alk" src="images/diamond-icon-alk.png" alt="alkaline hazard icon" /></li>
+                            <li class="hazard"><img class="hazard-icon" id="cor" src="images/diamond-icon-cor.png" alt="corrosive hazard icon" /></li>
+                            <li class="hazard"><img class="hazard-icon" id="oxy" src="images/diamond-icon-oxy.png" alt="oxygen hazard icon" /></li>
+                            <li class="hazard"><img class="hazard-icon" id="rad" src="images/diamond-icon-rad.png" alt="radioactive hazard icon" /></li>
+                            <li class="hazard"><img class="hazard-icon" id="nowater" src="images/diamond-icon-nowater.png" alt="no water hazard icon" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <aside id="printRender">
+            <section class="print-wrapper">
+                <div class="chemical-label" id="labelPreview">
+                    <h1 class="substance"></h1>
+                    <section class="chem-details">
+                        <div class="formula"><span class="title">Formula: </span><span class="value"></span></div>
+                        <div class="generator"><span class="title">Generated By: </span><span class="value"></span></div>
+                        <div class="date"><span class="title">Date: </span><span class="value"></span></div>
+                    </section>
+                    <section class="diamond hide">
+                        <img src="images/safety-diamond.png" alt="safety diamond"/>
+                        <span class="diamond-value health"></span>
+                        <span class="diamond-value flammability"></span>
+                        <span class="diamond-value reactivity"></span>
+                        <span class="diamond-value hazard"></span>
+                    </section>
+                    <section class="hazards">
+                        <h2 class="warning"></h2>
+                        <ul class="hazards-list"></ul>
+                    </section>
+                </div>
+                <div id="editingPanel">
+                    <h1>Label Styles</h1>
+                    <section id="backgroundColor" class="color-option-btn">
+                        <a href="#" id="selectedBGColor" class="light-blue"></a>
+                    </section>
+                    <section id="fontColor" class="color-option-btn">
+                        <a href="#" id="selectedFontColor" class="dark-blue"><i class="fas fa-font"></i></a>
+                    </section>
+                    <section id="swatchesPanel">
+                        <ul class="swatches-list">
+                            <li class="color selected"><a href="#" class="black"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="gray"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="white"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="dark-red"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="red"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="light-red"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="dark-orange"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="orange"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="light-orange"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="dark-yellow"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="yellow"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="light-yellow"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="dark-green"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="green"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="light-green"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="dark-blue"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="blue"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="light-blue"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="dark-purple"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="purple"><i class="fas fa-font"></i></a></li>
+                            <li class="color"><a href="#" class="light-purple"><i class="fas fa-font"></i></a></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+            <section class="print-wrapper">
+                <div id="addToPage">
+                    <a href="#" class="add-button">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                    <span class="added-confirmation">
+                        <i class="fas fa-check-circle"></i>
+                        Added!
+                    </span>
+                    <label>
+                        <span>Number of labels</span>
+                        <input type="number" name="copies" value="1"/>
+                    </label>
+                </div>
+
+            </section>
+            <section class="print-wrapper for-printing">
+                <div id="printableDoc">
+
+                </div>
+            </section>
+        </aside>
+    </main>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

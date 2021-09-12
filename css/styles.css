@@ -1,0 +1,1283 @@
+@charset "UTF-8";
+/************ VARIABLES ************/
+/********* MIXINS *********/
+@-ms-keyframes bounce {
+  0% {
+    -ms-transform: translate(0px, 0px);
+  }
+  10% {
+    -ms-transform: translate(0px, 0px);
+  }
+  20% {
+    -ms-transform: translate(0px, -10px) rotate(15deg);
+  }
+  25% {
+    -ms-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  30% {
+    -ms-transform: translate(0px, -10px) rotate(15deg);
+  }
+  35% {
+    -ms-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  40% {
+    -ms-transform: translate(0px, -10px) rotate(15deg);
+  }
+  45% {
+    -ms-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  55% {
+    -ms-transform: translate(0px, 0px);
+  }
+  100% {
+    -ms-transform: translate(0px, 0px);
+  }
+}
+@-moz-keyframes bounce {
+  0% {
+    -moz-transform: translate(0px, 0px);
+  }
+  10% {
+    -moz-transform: translate(0px, 0px);
+  }
+  20% {
+    -moz-transform: translate(0px, -10px) rotate(15deg);
+  }
+  25% {
+    -moz-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  30% {
+    -moz-transform: translate(0px, -10px) rotate(15deg);
+  }
+  35% {
+    -moz-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  40% {
+    -moz-transform: translate(0px, -10px) rotate(15deg);
+  }
+  45% {
+    -moz-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  55% {
+    -moz-transform: translate(0px, 0px);
+  }
+  100% {
+    -moz-transform: translate(0px, 0px);
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  10% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  20% {
+    -webkit-transform: translate(0px, -10px) rotate(15deg);
+  }
+  25% {
+    -webkit-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  30% {
+    -webkit-transform: translate(0px, -10px) rotate(15deg);
+  }
+  35% {
+    -webkit-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  40% {
+    -webkit-transform: translate(0px, -10px) rotate(15deg);
+  }
+  45% {
+    -webkit-transform: translate(0px, -10px) rotate(-15deg);
+  }
+  55% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(0px, 0px);
+  }
+  20% {
+    transform: translate(0px, -10px) rotate(15deg) scale(1.3);
+  }
+  25% {
+    transform: translate(0px, -10px) rotate(-15deg) scale(1.3);
+  }
+  30% {
+    transform: translate(0px, -10px) rotate(15deg) scale(1.3);
+  }
+  35% {
+    transform: translate(0px, -10px) rotate(-15deg) scale(1.3);
+  }
+  40% {
+    transform: translate(0px, -10px) rotate(15deg) scale(1.3);
+  }
+  45% {
+    transform: translate(0px, -10px) rotate(-15deg) scale(1.3);
+  }
+  55% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+/************ PAGE STYLES ***********/
+body {
+  background: #f7f7f7;
+  display: grid;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  min-height: 500px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+header {
+  background: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height: 6em;
+  width: 100%;
+}
+header #logo {
+  height: 4em;
+  margin: 0.5em;
+}
+header .controls {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+}
+header .controls .control-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+header .controls .control-list .control {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1em;
+}
+header .controls .control-list .control a {
+  color: #999999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+header .controls .control-list .control a i {
+  font-size: 1.8em;
+  margin: 0;
+  padding: 0.2em 0;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 100%;
+}
+header .controls .control-list .control #print:hover {
+  color: #007aff;
+}
+header .controls .control-list .control #print:hover i {
+  -webkit-animation: bounce linear 2s 1 0s;
+  -moz-animation: bounce linear 2s 1 0s;
+  -ms-animation: bounce linear 2s 1 0s;
+  -o-animation: bounce linear 2s 1 0s;
+  animation: bounce linear 2s 1 0s;
+}
+header .controls .control-list .control #reset:hover {
+  color: #DA1B2B;
+}
+header .controls .control-list .control #reset:hover i {
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -moz-transform: rotate(-360deg) scale(1.2);
+  -ms-transform: rotate(-360deg) scale(1.2);
+  -webkit-transform: rotate(-360deg) scale(1.2);
+  transform: rotate(-360deg) scale(1.2);
+  transform-origin: center center;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 0.1fr 2fr 0.1fr 2fr 0.1fr;
+  grid-template-areas: "gutter1 input gutter2 output gutter3";
+  width: 100%;
+}
+main .form-wrapper,
+main #printRender {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  height: auto;
+  padding: 1em;
+}
+main .form-wrapper {
+  grid-area: input;
+}
+main .form-wrapper #hazardsForm {
+  background: #ffffff;
+  border-radius: 0.5em;
+  -moz-box-shadow: 0px 5px 10px -5px #d7d7d7;
+  -ms-box-shadow: 0px 5px 10px -5px #d7d7d7;
+  -webkit-box-shadow: 0px 5px 10px -5px #d7d7d7;
+  box-shadow: 0px 5px 10px -5px #d7d7d7;
+  padding: 0 1em;
+}
+main .form-wrapper #hazardsForm .form-subsection {
+  border-bottom: 1px solid #d7d7d7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding-bottom: 1em;
+}
+main .form-wrapper #hazardsForm .form-subsection h1 {
+  width: 100%;
+}
+main .form-wrapper #hazardsForm .form-subsection label {
+  margin: 0.5em 2.5%;
+  width: 45%;
+}
+main .form-wrapper #hazardsForm .form-subsection label span {
+  color: #252525;
+  display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  width: 100%;
+}
+main .form-wrapper #hazardsForm .form-subsection label input {
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  flex: 0 1;
+  font-size: 1em;
+  margin: 0;
+  padding: 0.5em;
+  width: calc(100% - 1em);
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu {
+  border-radius: 5px;
+  background: #EBF4FF;
+  color: #002752;
+  padding: 0.5em;
+  position: relative;
+  margin: 0.5em 2.5%;
+  width: calc(45% - 1em);
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu .units.selected {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu .units.selected:after {
+  font-weight: 900;
+  margin: 0 0.5em;
+  display: block;
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu .menu {
+  background: #007aff;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  list-style: none;
+  display: none;
+  width: 100%;
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu .menu li {
+  display: block;
+  padding: 0.5em;
+  width: calc(100% - 1em);
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu .menu li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+main .form-wrapper #hazardsForm .form-subsection #unitsMenu .menu.active {
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+main .form-wrapper #hazardsForm .form-subsection .radio-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+main .form-wrapper #hazardsForm .form-subsection .radio-buttons label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1em;
+}
+main .form-wrapper #hazardsForm .form-subsection .radio-buttons label input {
+  border: 0px;
+  flex: 1 1;
+  margin-right: 0.5em;
+  width: 1em;
+}
+main .form-wrapper #hazardsForm .form-subsection .radio-buttons label span {
+  font-weight: 500;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+  width: auto;
+}
+main .form-wrapper #hazardsForm .form-subsection .hazards-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: flex-start;
+  list-style: none;
+  flex-wrap: wrap;
+  padding: 0;
+}
+main .form-wrapper #hazardsForm .form-subsection .hazards-list .hazard {
+  color: #000000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0.5em 0.5em 1em;
+  text-decoration: none;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  width: 7em;
+}
+main .form-wrapper #hazardsForm .form-subsection .hazards-list .hazard .hazard-icon {
+  display: block;
+  width: 100%;
+}
+main .form-wrapper #hazardsForm .form-subsection .hazards-list .hazard .hazard-type {
+  font-size: 0.9em;
+}
+main .form-wrapper #hazardsForm .form-subsection .hazards-list .hazard:hover {
+  filter: grayscale(30%);
+  opacity: 0.9;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+main .form-wrapper #hazardsForm .form-subsection .hazards-list .hazard.selected {
+  filter: grayscale(0);
+  opacity: 1;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories > label {
+  width: 25%;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories input {
+  font-weight: bold;
+  text-align: center;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories input[name=health] {
+  border: 1px solid #1043F9;
+  background: #EBEFFE;
+  color: #030F3A;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories input[name=flammability] {
+  border: 1px solid #5C0A10;
+  background: #FDEDEE;
+  color: #5C0A10;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories input[name=reactivity] {
+  border: 1px solid #A3A300;
+  background: #FFFFEB;
+  color: #A3A300;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories .specific-hazards {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 100%;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories .specific-hazards .hazard {
+  border: 1px solid rgba(255, 255, 255, 0);
+  margin: 0 1em;
+  width: 4em;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories .specific-hazards .hazard .hazard-icon {
+  width: 4em;
+}
+main .form-wrapper #hazardsForm .form-subsection .safety-diamond-categories .specific-hazards .hazard.selected {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px #5C0A10 solid;
+  border-radius: 10px;
+}
+main #printRender {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  grid-area: output;
+}
+main #printRender .print-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+main #printRender .print-wrapper .chemical-label {
+  background: #ffffff;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 4px 8px -4px #d7d7d7;
+  -ms-box-shadow: 0px 4px 8px -4px #d7d7d7;
+  -webkit-box-shadow: 0px 4px 8px -4px #d7d7d7;
+  box-shadow: 0px 4px 8px -4px #d7d7d7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding: 0;
+  min-height: 237px;
+  width: 25em;
+}
+main #printRender .print-wrapper .chemical-label h1 {
+  background: #EBEFFE;
+  color: #030F3A;
+  margin: 0;
+  min-height: 1em;
+  padding: 0.2em 0;
+  text-align: center;
+  width: 100%;
+}
+main #printRender .print-wrapper .chemical-label .chem-details {
+  margin-top: 0.5em;
+}
+main #printRender .print-wrapper .chemical-label .chem-details div {
+  display: block;
+  padding: 0.1em 0.4em;
+}
+main #printRender .print-wrapper .chemical-label .chem-details div .value {
+  font-weight: 600;
+}
+main #printRender .print-wrapper .chemical-label .diamond {
+  align-items: flex-start;
+  align-content: flex-start;
+  margin: 0.5em;
+  position: relative;
+}
+main #printRender .print-wrapper .chemical-label .diamond > img {
+  width: 5em;
+}
+main #printRender .print-wrapper .chemical-label .diamond .diamond-value {
+  position: absolute;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 1em;
+  height: 1em;
+}
+main #printRender .print-wrapper .chemical-label .diamond .health {
+  color: #ffffff;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  left: 1em;
+  top: 50%;
+}
+main #printRender .print-wrapper .chemical-label .diamond .flammability {
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  left: 50%;
+  top: 1em;
+}
+main #printRender .print-wrapper .chemical-label .diamond .reactivity {
+  margin-right: -0.5em;
+  margin-top: -0.5em;
+  right: 1em;
+  top: 50%;
+}
+main #printRender .print-wrapper .chemical-label .diamond .hazard {
+  margin-left: -0.75em;
+  margin-bottom: -0.75em;
+  left: 50%;
+  bottom: 1.5em;
+  width: 1.5em;
+}
+main #printRender .print-wrapper .chemical-label .diamond .hazard img {
+  display: block;
+  width: 100%;
+}
+main #printRender .print-wrapper .chemical-label .diamond.show {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+main #printRender .print-wrapper .chemical-label .diamond.hide {
+  display: none;
+}
+main #printRender .print-wrapper .chemical-label .hazards {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+main #printRender .print-wrapper .chemical-label .hazards .warning {
+  color: #030F3A;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 0.3em;
+  text-transform: capitalize;
+  width: calc(100% - 0.6em);
+}
+main #printRender .print-wrapper .chemical-label .hazards .hazards-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+main #printRender .print-wrapper .chemical-label .hazards .hazards-list .hazard img {
+  margin: 0.2em 0.3em;
+  width: 3.5em;
+}
+main #printRender .print-wrapper .chemical-label .hazards .hazards-list .hazard span {
+  display: none;
+}
+main #printRender .print-wrapper #editingPanel {
+  background: #ffffff;
+  border-radius: 0 0 5px 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 1em;
+  position: relative;
+  width: 8em;
+}
+main #printRender .print-wrapper #editingPanel h1 {
+  background: #d7d7d7;
+  border-radius: 5px 5px 0 0;
+  color: #252525;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+  padding: 0.2em 0;
+  text-align: center;
+  width: 100%;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor,
+main #printRender .print-wrapper #editingPanel #fontColor {
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0.5em;
+  overflow: hidden;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a,
+main #printRender .print-wrapper #editingPanel #fontColor a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 1em;
+  text-decoration: none;
+  height: 2em;
+  width: 2em;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.white {
+  background: #ffffff;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.black {
+  background: #000000;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.gray {
+  background: #666666;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.dark-red {
+  background: #5C0A10;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.red {
+  background: #DA1B2B;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.light-red {
+  background: #FDEDEE;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.dark-orange {
+  background: #663C00;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.orange {
+  background: #ff9500;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.light-orange {
+  background: #FFF7EB;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.dark-yellow {
+  background: #A3A300;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.yellow {
+  background: #FFFD82;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.light-yellow {
+  background: #FFFFEB;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.dark-green {
+  background: #143E24;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.green {
+  background: #3BBA6C;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.light-green {
+  background: #EFFAF4;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.dark-blue {
+  background: #030F3A;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.blue {
+  background: #1043F9;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.light-blue {
+  background: #EBEFFE;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.dark-purple {
+  background: #350363;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.purple {
+  background: #8810F9;
+}
+main #printRender .print-wrapper #editingPanel #backgroundColor a.light-purple {
+  background: #F5EBFE;
+}
+main #printRender .print-wrapper #editingPanel #fontColor {
+  background: #f7f7f7;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.white {
+  color: #ffffff;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.black {
+  color: #000000;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.gray {
+  color: #666666;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.dark-red {
+  color: #5C0A10;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.red {
+  color: #DA1B2B;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.light-red {
+  color: #FDEDEE;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.dark-orange {
+  color: #663C00;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.orange {
+  color: #ff9500;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.light-orange {
+  color: #FFF7EB;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.dark-yellow {
+  color: #A3A300;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.yellow {
+  color: #FFFD82;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.light-yellow {
+  color: #FFFFEB;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.dark-green {
+  color: #143E24;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.green {
+  color: #3BBA6C;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.light-green {
+  color: #EFFAF4;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.dark-blue {
+  color: #030F3A;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.blue {
+  color: #1043F9;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.light-blue {
+  color: #EBEFFE;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.dark-purple {
+  color: #350363;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.purple {
+  color: #8810F9;
+}
+main #printRender .print-wrapper #editingPanel #fontColor a.light-purple {
+  color: #F5EBFE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel {
+  background: #ffffff;
+  filter: drop-shadow(0px -3px 20px #d7d7d7);
+  border: 10px;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  margin-top: 0.5em;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel .swatches-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel .swatches-list .color {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0.2em;
+  height: 2em;
+  width: 2em;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel .swatches-list .color a {
+  background: #f7f7f7;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #d7d7d7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0.1em;
+  height: 1.6em;
+  width: 1.6em;
+  text-align: center;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel .swatches-list .color a i {
+  display: none;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel .swatches-list .color.selected {
+  border: 2px solid black;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.white {
+  background: #ffffff;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.black {
+  background: #000000;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.gray {
+  background: #666666;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.dark-red {
+  background: #5C0A10;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.red {
+  background: #DA1B2B;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.light-red {
+  background: #FDEDEE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.dark-orange {
+  background: #663C00;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.orange {
+  background: #ff9500;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.light-orange {
+  background: #FFF7EB;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.dark-yellow {
+  background: #A3A300;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.yellow {
+  background: #FFFD82;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.light-yellow {
+  background: #FFFFEB;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.dark-green {
+  background: #143E24;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.green {
+  background: #3BBA6C;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.light-green {
+  background: #EFFAF4;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.dark-blue {
+  background: #030F3A;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.blue {
+  background: #1043F9;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.light-blue {
+  background: #EBEFFE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.dark-purple {
+  background: #350363;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.purple {
+  background: #8810F9;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor .swatches-list .color a.light-purple {
+  background: #F5EBFE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.backgroundColor:before {
+  content: "";
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ffffff;
+  border-left: 10px solid transparent;
+  position: absolute;
+  bottom: 100%;
+  left: 1.4em;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a {
+  background: #d7d7d7;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a i {
+  display: block;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.white {
+  color: #ffffff;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.black {
+  color: #000000;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.gray {
+  color: #666666;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.dark-red {
+  color: #5C0A10;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.red {
+  color: #DA1B2B;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.light-red {
+  color: #FDEDEE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.dark-orange {
+  color: #663C00;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.orange {
+  color: #ff9500;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.light-orange {
+  color: #FFF7EB;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.dark-yellow {
+  color: #A3A300;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.yellow {
+  color: #FFFD82;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.light-yellow {
+  color: #FFFFEB;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.dark-green {
+  color: #143E24;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.green {
+  color: #3BBA6C;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.light-green {
+  color: #EFFAF4;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.dark-blue {
+  color: #030F3A;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.blue {
+  color: #1043F9;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.light-blue {
+  color: #EBEFFE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.dark-purple {
+  color: #350363;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.purple {
+  color: #8810F9;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor .swatches-list .color a.light-purple {
+  color: #F5EBFE;
+}
+main #printRender .print-wrapper #editingPanel #swatchesPanel.fontColor:before {
+  content: "";
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ffffff;
+  border-left: 10px solid transparent;
+  position: absolute;
+  bottom: 100%;
+  right: 1.4em;
+}
+main #printRender .print-wrapper #addToPage {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+}
+main #printRender .print-wrapper #addToPage .add-button {
+  font-size: 2em;
+  text-decoration: none;
+  color: #007aff;
+}
+main #printRender .print-wrapper #addToPage .add-button i {
+  background: #ffffff;
+  border-radius: 50%;
+  order: 2;
+  z-index: 2;
+}
+main #printRender .print-wrapper #addToPage .add-button:before {
+  background: #d7d7d7;
+  border-radius: 2px;
+  content: "";
+  display: block;
+  height: 2em;
+  margin: 1em calc(50% - 1px) 0px;
+  order: 1;
+  width: 2px;
+  z-index: 1;
+}
+main #printRender .print-wrapper #addToPage .add-button:after {
+  background: #d7d7d7;
+  border-radius: 2px;
+  color: #d7d7d7;
+  content: "";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 100;
+  height: 2em;
+  line-height: 0em;
+  margin: 0 calc(50% - 1px) 1em;
+  order: 3;
+  text-align: center;
+  width: 2px;
+  z-index: 1;
+}
+main #printRender .print-wrapper #addToPage .added-confirmation {
+  border-radius: 30px;
+  -moz-box-shadow: 3px 3px 10px rgba(20, 62, 36, 0.2), -3px -3px 6px rgba(239, 250, 244, 0.2);
+  -ms-box-shadow: 3px 3px 10px rgba(20, 62, 36, 0.2), -3px -3px 6px rgba(239, 250, 244, 0.2);
+  -webkit-box-shadow: 3px 3px 10px rgba(20, 62, 36, 0.2), -3px -3px 6px rgba(239, 250, 244, 0.2);
+  box-shadow: 3px 3px 10px rgba(20, 62, 36, 0.2), -3px -3px 6px rgba(239, 250, 244, 0.2);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  background: #EFFAF4;
+  color: #3BBA6C;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.7em 0.3em;
+  text-align: center;
+  -moz-transform: translate(0px, 20px);
+  -ms-transform: translate(0px, 20px);
+  -webkit-transform: translate(0px, 20px);
+  transform: translate(0px, 20px);
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 8em;
+  z-index: -1;
+}
+main #printRender .print-wrapper #addToPage .added-confirmation i {
+  color: #3BBA6C;
+  font-size: 1.5em;
+  margin: 0 0.5em;
+  padding: 0;
+}
+main #printRender .print-wrapper #addToPage .added-confirmation.visible {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+  z-index: 10;
+}
+main #printRender .print-wrapper #addToPage label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+  margin: 0.5em;
+  text-align: center;
+  width: 8em;
+}
+main #printRender .print-wrapper #addToPage label input {
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  font-size: 1.25em;
+  margin: 0.2em 0;
+  padding: 0.3em;
+  text-align: center;
+  width: 6em;
+}
+main #printRender .print-wrapper #printableDoc {
+  background: #ffffff;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 4px 8px -4px #d7d7d7;
+  -ms-box-shadow: 0px 4px 8px -4px #d7d7d7;
+  -webkit-box-shadow: 0px 4px 8px -4px #d7d7d7;
+  box-shadow: 0px 4px 8px -4px #d7d7d7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 35em;
+  width: 28em;
+}
+main #printRender .print-wrapper #printableDoc .label-wrapper {
+  display: block;
+  border: 1px solid #000000;
+  width: calc(25em * 0.33);
+  max-height: min-content;
+}
+main #printRender .print-wrapper #printableDoc .label-wrapper .chemical-label {
+  -moz-transform: scale(0.33);
+  -ms-transform: scale(0.33);
+  -webkit-transform: scale(0.33);
+  transform: scale(0.33);
+  margin-bottom: calc(-237px * 0.67);
+  margin-right: calc(-25em * 0.67);
+  -moz-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media only print {
+  body {
+    display: block;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  header,
+.form-wrapper,
+.print-wrapper {
+    display: none !important;
+  }
+
+  main {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  main #printRender {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  main #printRender .print-wrapper.for-printing {
+    display: block !important;
+    width: 100%;
+  }
+  main #printRender .print-wrapper.for-printing #printableDoc {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  main #printRender .print-wrapper.for-printing #printableDoc .label-wrapper {
+    border: none;
+    float: left;
+    display: block;
+    height: min-content;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    width: 33%;
+  }
+  main #printRender .print-wrapper.for-printing #printableDoc .label-wrapper .chemical-label {
+    box-sizing: border-box;
+    border: 1px solid #d7d7d7;
+    float: left;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    margin-right: -10em;
+    margin-bottom: -94.8px;
+  }
+  main #printRender .print-wrapper.for-printing .label-wrapper:nth-of-type(15n) {
+    page-break-after: always;
+    break-after: always;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

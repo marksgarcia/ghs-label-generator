@@ -1,0 +1,1050 @@
+/************ VARIABLES ************/
+$font-stack: -apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+Helvetica,
+Arial,
+sans-serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol";
+
+$black: #000000;
+$gray: #666666;
+$dark-gray: #252525;
+$mid-gray: #d7d7d7;
+$lightest-gray: #f7f7f7;
+$white: #ffffff;
+
+$light-red: #FDEDEE;
+$red: #DA1B2B;
+$dark-red: #5C0A10;
+
+$light-orange: #FFF7EB;
+$orange: #ff9500;
+$dark-orange: #663C00;
+
+$light-yellow: #FFFFEB;
+$yellow: #FFFD82;
+$dark-yellow: #A3A300;
+
+$light-green: #EFFAF4;
+$green: #3BBA6C;
+$dark-green: #143E24;
+
+$light-blue: #EBEFFE;
+$blue: #1043F9;
+$dark-blue: #030F3A;
+
+$light-purple: #F5EBFE;
+$purple: #8810F9;
+$dark-purple: #350363;
+
+$dark-accent-blue: #002752;
+$accent-blue: #007aff;
+$light-accent-blue: #EBF4FF;
+
+
+/********* MIXINS *********/
+@mixin boxshadow($property) {
+    -moz-box-shadow: $property;
+    -ms-box-shadow: $property;
+    -webkit-box-shadow: $property;
+    box-shadow: $property;
+}
+
+@mixin transform($property) {
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -webkit-transform: $property;
+    transform: $property;
+}
+
+@mixin transition($property) {
+    -moz-transition: $property;
+    -ms-transition: $property;
+    -webkit-transition: $property;
+    transition: $property;
+}
+
+@mixin flexbox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+$colors: ('white': $white, 'black':$black, 'gray':$gray, 'dark-red':$dark-red, 'red':$red, 'light-red':$light-red, 'dark-orange':$dark-orange, 'orange':$orange, 'light-orange':$light-orange, 'dark-yellow':$dark-yellow, 'yellow':$yellow, 'light-yellow':$light-yellow, 'dark-green':$dark-green, 'green':$green, 'light-green':$light-green, 'dark-blue':$dark-blue, 'blue':$blue, 'light-blue':$light-blue, 'dark-purple':$dark-purple, 'purple':$purple, 'light-purple':$light-purple);
+
+@mixin setBackgroundColors {
+
+    @each $name,
+    $color in $colors {
+        a.#{$name} {
+            background: $color;
+        }
+    }
+}
+
+@mixin setFontColors {
+
+    @each $name,
+    $color in $colors {
+        a.#{$name} {
+            color: $color;
+        }
+    }
+}
+
+@mixin animation($name, $duration, $timing, $iteration, $delay) {
+    -webkit-animation: $name $duration $timing $iteration $delay;
+    -moz-animation: $name $duration $timing $iteration $delay;
+    -ms-animation: $name $duration $timing $iteration $delay;
+    -o-animation: $name $duration $timing $iteration $delay;
+    animation: $name $duration $timing $iteration $delay;
+}
+
+@-ms-keyframes bounce {
+    0% {-ms-transform: translate(0px, 0px);}
+    10% {-ms-transform: translate(0px, 0px);}
+    20% {-ms-transform: translate(0px, -10px) rotate(15deg)}
+    25% {-ms-transform: translate(0px, -10px) rotate(-15deg)}
+    30% {-ms-transform: translate(0px, -10px) rotate(15deg)}
+    35% {-ms-transform: translate(0px, -10px) rotate(-15deg)}
+    40% {-ms-transform: translate(0px, -10px) rotate(15deg)}
+    45% {-ms-transform: translate(0px, -10px) rotate(-15deg)}
+    55% {-ms-transform: translate(0px, 0px);}
+    100% {-ms-transform: translate(0px, 0px);}
+}
+
+@-moz-keyframes bounce {
+    0% {-moz-transform: translate(0px, 0px);}
+    10% {-moz-transform: translate(0px, 0px);}
+    20% {-moz-transform: translate(0px, -10px) rotate(15deg)}
+    25% {-moz-transform: translate(0px, -10px) rotate(-15deg)}
+    30% {-moz-transform: translate(0px, -10px) rotate(15deg)}
+    35% {-moz-transform: translate(0px, -10px) rotate(-15deg)}
+    40% {-moz-transform: translate(0px, -10px) rotate(15deg)}
+    45% {-moz-transform: translate(0px, -10px) rotate(-15deg)}
+    55% {-moz-transform: translate(0px, 0px);}
+    100% {-moz-transform: translate(0px, 0px);}
+}
+
+@-webkit-keyframes bounce {
+    0% {-webkit-transform: translate(0px, 0px);}
+    10% {-webkit-transform: translate(0px, 0px);}
+    20% {-webkit-transform: translate(0px, -10px) rotate(15deg)}
+    25% {-webkit-transform: translate(0px, -10px) rotate(-15deg)}
+    30% {-webkit-transform: translate(0px, -10px) rotate(15deg)}
+    35% {-webkit-transform: translate(0px, -10px) rotate(-15deg)}
+    40% {-webkit-transform: translate(0px, -10px) rotate(15deg)}
+    45% {-webkit-transform: translate(0px, -10px) rotate(-15deg)}
+    55% {-webkit-transform: translate(0px, 0px);}
+    100% {-webkit-transform: translate(0px, 0px);}
+}
+
+@keyframes bounce {
+    0% {transform: translate(0px, 0px);}
+    10% {transform: translate(0px, 0px);}
+    20% {transform: translate(0px, -10px) rotate(15deg) scale(1.3)}
+    25% {transform: translate(0px, -10px) rotate(-15deg) scale(1.3)}
+    30% {transform: translate(0px, -10px) rotate(15deg) scale(1.3)}
+    35% {transform: translate(0px, -10px) rotate(-15deg) scale(1.3)}
+    40% {transform: translate(0px, -10px) rotate(15deg) scale(1.3)}
+    45% {transform: translate(0px, -10px) rotate(-15deg) scale(1.3)}
+    55% {transform: translate(0px, 0px);}
+    100% {transform: translate(0px, 0px);}
+}
+
+
+/************ PAGE STYLES ***********/
+
+body {
+    background: $lightest-gray;
+    display: grid;
+    font-family: $font-stack;
+    min-height: 500px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+header {
+    background: $white;
+    @include flexbox();
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 6em;
+    width: 100%;
+
+    #logo {
+        height: 4em;
+        margin: 0.5em;
+    }
+
+    .controls {
+        @include flexbox();
+        width: auto;
+
+        .control-list {
+            @include flexbox();
+            justify-content: space-evenly;
+            list-style: none;
+
+            .control {
+                @include flexbox();
+                flex-wrap: wrap;
+                margin: 0 1em;
+
+                a {
+                    color: #999999;
+                    @include flexbox();
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    font-size: 0.8em;
+                    text-align: center;
+                    text-decoration: none;
+                    width: 100%;
+
+                    i {
+                        font-size: 1.8em;
+                        margin: 0;
+                        padding: 0.2em 0;
+                        @include transition(0.5s);
+                        width: 100%;
+                    }
+                }
+
+                #print:hover {
+
+                    color: $accent-blue;
+
+                    i {
+                        @include animation(bounce, linear, 2s, 1, 0s);
+                    }
+                }
+
+                #reset:hover {
+                    color: $red;
+                    i {
+                        @include transition(0.5s);
+                        @include transform((rotate(-360deg) scale(1.2)));
+                        transform-origin: center center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 0.1fr 2fr 0.1fr 2fr 0.1fr;
+    grid-template-areas:
+        'gutter1 input gutter2 output gutter3';
+    width: 100%;
+
+    .form-wrapper,
+    #printRender {
+        @include flexbox();
+        justify-content: center;
+        align-content: flex-start;
+        align-items: flex-start;
+        height: auto;
+        padding: 1em;
+    }
+
+    .form-wrapper {
+        grid-area: input;
+
+
+        #hazardsForm {
+
+            background: $white;
+            border-radius: 0.5em;
+            @include boxshadow(0px 5px 10px -5px $mid-gray);
+            padding: 0 1em;
+
+            .form-subsection {
+                border-bottom: 1px solid $mid-gray;
+                @include flexbox();
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-end;
+                padding-bottom: 1em;
+
+                h1 {
+                    width: 100%;
+                }
+
+                label {
+                    margin: 0.5em 2.5%;
+                    width: 45%;
+
+                    span {
+                        color: $dark-gray;
+                        display: block;
+                        font-size: 0.8em;
+                        font-weight: bold;
+                        margin-bottom: 0.4em;
+                        text-transform: uppercase;
+                        width: 100%;
+                    }
+
+                    input {
+                        border: 1px solid $mid-gray;
+                        border-radius: 5px;
+                        flex: 0 1;
+                        font-size: 1em;
+                        margin: 0;
+                        padding: 0.5em;
+                        width: calc(100% - 1em);
+                    }
+                }
+
+                #unitsMenu {
+                    border-radius: 5px;
+                    background: $light-accent-blue;
+                    color: $dark-accent-blue;
+                    padding: 0.5em;
+                    position: relative;
+                    margin: 0.5em 2.5%;
+                    width: calc(45% - 1em);
+
+                    .units.selected {
+                        @include flexbox();
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                    .units.selected:after {
+                        font-weight: 900;
+                        margin: 0 0.5em;
+                        display: block;
+                        content: "\f078";
+                        font-family: "Font Awesome 5 Pro";
+                    }
+
+                    .menu {
+
+                        background: $accent-blue;
+                        color: $white;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        list-style: none;
+                        display: none;
+                        width: 100%;
+
+                        li {
+                            display: block;
+                            padding: 0.5em;
+                            width: calc(100% - 1em);
+                        }
+
+                        li:hover {
+                            background: rgba(0, 0, 0, 0.1);
+                        }
+                    }
+
+                    .menu.active {
+                        border-radius: 5px;
+                        @include flexbox();
+                        flex-wrap: wrap;
+                        margin: 0;
+                        padding: 0;
+
+                    }
+                }
+
+                .radio-buttons {
+                    @include flexbox;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+
+                    label {
+                        @include flexbox();
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-right: 1em;
+
+                        input {
+                            border: 0px;
+                            flex: 1 1;
+                            margin-right: 0.5em;
+                            width: 1em;
+                        }
+
+                        span {
+                            font-weight: 500;
+                            font-size: 1em;
+                            margin: 0;
+                            padding: 0;
+                            text-transform: none;
+                            width: auto;
+                        }
+                    }
+                }
+
+                .hazards-list {
+                    @include flexbox();
+                    flex-direction: row;
+                    align-items: center;
+                    align-content: flex-start;
+                    justify-content: flex-start;
+                    list-style: none;
+                    flex-wrap: wrap;
+                    padding: 0;
+
+                    .hazard {
+                        color: $black;
+                        @include flexbox();
+                        filter: grayscale(100%);
+                        opacity: 0.7;
+                        align-items: center;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        margin: 0.5em 0.5em 1em;
+                        text-decoration: none;
+                        @include transition(0.2s);
+                        width: 7em;
+
+                        .hazard-icon {
+                            display: block;
+                            width: 100%;
+                        }
+
+                        .hazard-type {
+                            font-size: 0.9em;
+                        }
+                    }
+
+                    .hazard:hover {
+                        filter: grayscale(30%);
+                        opacity: 0.9;
+                        @include transition(0.2s);
+                    }
+
+                    .hazard.selected {
+                        filter: grayscale(0);
+                        opacity: 1;
+                    }
+
+                }
+
+                .safety-diamond-categories {
+                    @include flexbox();
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    >label {
+                        width: 25%;
+                    }
+
+                    input {
+                        font-weight: bold;
+                        text-align: center;
+                    }
+
+                    input[name="health"] {
+                        border: 1px solid $blue;
+                        background: $light-blue;
+                        color: $dark-blue;
+                    }
+
+                    input[name="flammability"] {
+                        border: 1px solid $dark-red;
+                        background: $light-red;
+                        color: $dark-red;
+                    }
+
+                    input[name="reactivity"] {
+                        border: 1px solid $dark-yellow;
+                        background: $light-yellow;
+                        color: $dark-yellow;
+                    }
+
+                    .specific-hazards {
+                        @include flexbox();
+                        flex-direction: row;
+                        list-style: none;
+                        width: 100%;
+
+                        .hazard {
+                            border: 1px solid rgba(255, 255, 255, 0);
+                            margin: 0 1em;
+                            width: 4em;
+
+                            .hazard-icon {
+                                width: 4em;
+                            }
+                        }
+
+                        .hazard.selected {
+                            -moz-box-sizing: border-box;
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            border: 1px $dark-red solid;
+                            border-radius: 10px;
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+
+    #printRender {
+        @include flexbox();
+        flex-direction: row;
+        flex-wrap: wrap;
+        grid-area: output;
+
+        .print-wrapper {
+            @include flexbox();
+            flex-direction: row;
+            justify-content: center;
+            align-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+
+            .chemical-label {
+                background: $white;
+                border-radius: 5px;
+                @include boxshadow(0px 4px 8px -4px $mid-gray);
+                @include flexbox();
+                align-content: flex-start;
+                align-items: flex-start;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: wrap;
+                overflow: hidden;
+                padding: 0;
+                min-height: 237px;
+                width: 25em;
+
+                h1 {
+                    background: $light-blue;
+                    color: $dark-blue;
+                    margin: 0;
+                    min-height: 1em;
+                    padding: 0.2em 0;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .chem-details {
+                    margin-top: 0.5em;
+
+                    div {
+                        display: block;
+                        padding: 0.1em 0.4em;
+
+                        .value {
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                .diamond {
+
+                    align-items: flex-start;
+                    align-content: flex-start;
+                    margin: 0.5em;
+                    position: relative;
+
+                    >img {
+                        width: 5em;
+                    }
+
+                    .diamond-value {
+                        position: absolute;
+                        text-align: center;
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        width: 1em;
+                        height: 1em
+                    }
+
+                    .health {
+                        color: $white;
+                        margin-left: -0.5em;
+                        margin-top: -0.5em;
+                        left: 1em;
+                        top: 50%;
+                    }
+
+                    .flammability {
+                        margin-left: -0.5em;
+                        margin-top: -0.5em;
+                        left: 50%;
+                        top: 1em;
+                    }
+
+                    .reactivity {
+                        margin-right: -0.5em;
+                        margin-top: -0.5em;
+                        right: 1em;
+                        top: 50%;
+                    }
+
+                    .hazard {
+                        margin-left: -0.75em;
+                        margin-bottom: -0.75em;
+                        left: 50%;
+                        bottom: 1.5em;
+                        width: 1.5em;
+
+                        img {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .diamond.show {
+                    @include flexbox();
+                }
+
+                .diamond.hide {
+                    display: none;
+                }
+
+                .hazards {
+                    @include flexbox();
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    align-content: flex-start;
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    .warning {
+                        color: $dark-blue;
+                        font-size: 1em;
+                        font-weight: 700;
+                        margin: 0 0.3em;
+                        text-transform: capitalize;
+                        width: calc(100% - 0.6em);
+                    }
+
+                    .hazards-list {
+                        @include flexbox();
+                        flex-wrap: wrap;
+                        list-style: none;
+                        padding-left: 0;
+                        margin-left: 0;
+
+                        .hazard {
+                            img {
+                                margin: 0.2em 0.3em;
+                                width: 3.5em;
+                            }
+
+                            span {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #editingPanel {
+                background: $white;
+                border-radius: 0 0 5px 5px;
+                @include flexbox();
+                align-content: flex-start;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                margin: 0 1em;
+                position: relative;
+                width: 8em;
+
+                h1 {
+                    background: $mid-gray;
+                    border-radius: 5px 5px 0 0;
+                    color: #252525;
+                    font-size: 1em;
+                    font-weight: 500;
+                    margin: 0;
+                    padding: 0.2em 0;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                #backgroundColor,
+                #fontColor {
+                    border-radius: 50%;
+                    @include flexbox();
+                    justify-content: center;
+                    align-items: flex-start;
+                    margin: 0.5em;
+                    overflow: hidden;
+
+                    a {
+                        @include flexbox();
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+                        font-size: 1em;
+                        text-decoration: none;
+                        height: 2em;
+                        width: 2em;
+                    }
+
+                }
+
+
+
+
+                #backgroundColor {
+                    @include setBackgroundColors();
+                }
+
+                #fontColor {
+                    background: $lightest-gray;
+
+                    @include setFontColors();
+
+                }
+
+                #swatchesPanel {
+                    background: $white;
+                    filter: drop-shadow(0px -3px 20px $mid-gray);
+                    border: 10px;
+                    display: none;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: top;
+                    margin-top: 0.5em;
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+
+                    .swatches-list {
+                        @include flexbox();
+                        flex-wrap: wrap;
+                        list-style: none;
+                        justify-content: space-evenly;
+                        align-content: flex-start;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+
+                        .color {
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            border: 2px solid rgba(0, 0, 0, 0);
+                            border-radius: 5px;
+                            @include flexbox();
+                            align-content: center;
+                            justify-content: center;
+                            margin: 0.2em;
+                            height: 2em;
+                            width: 2em;
+
+                            a {
+                                background: $lightest-gray;
+                                -webkit-box-sizing: border-box;
+                                box-sizing: border-box;
+                                border: 1px solid #d7d7d7;
+                                @include flexbox();
+                                align-content: center;
+                                align-items: center;
+                                justify-content: center;
+                                text-decoration: none;
+                                border-radius: 5px;
+                                margin: 0.1em;
+                                height: 1.6em;
+                                width: 1.6em;
+                                text-align: center;
+
+                                i {
+                                    display: none;
+                                }
+                            }
+
+                        }
+
+                        .color.selected {
+                            border: 2px solid rgba(0, 0, 0, 1);
+                        }
+                    }
+
+                }
+
+                #swatchesPanel.backgroundColor {
+                    .swatches-list {
+                        .color {
+                            @include setBackgroundColors();
+                        }
+                    }
+
+                    @include flexbox();
+                }
+
+                #swatchesPanel.backgroundColor:before {
+                    content: "";
+                    border-top: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid $white;
+                    border-left: 10px solid transparent;
+                    position: absolute;
+                    bottom: 100%;
+                    left: 1.4em;
+                }
+
+                #swatchesPanel.fontColor {
+                    @include flexbox();
+
+                    .swatches-list {
+                        .color {
+                            a {
+                                background: $mid-gray;
+                                i {
+                                    display: block;
+                                }
+                            }
+
+                            @include setFontColors();
+                        }
+                    }
+                }
+
+                #swatchesPanel.fontColor:before {
+                    content: "";
+                    border-top: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid $white;
+                    border-left: 10px solid transparent;
+                    position: absolute;
+                    bottom: 100%;
+                    right: 1.4em;
+                }
+
+            }
+
+
+            #addToPage {
+                @include flexbox();
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                position: relative;
+
+                .add-button {
+
+                    font-size: 2em;
+                    text-decoration: none;
+                    color: $accent-blue;
+
+                    i {
+                        background: $white;
+                        border-radius: 50%;
+                        order: 2;
+                        z-index: 2;
+                    }
+                }
+
+                .add-button:before {
+                    background: $mid-gray;
+                    border-radius: 2px;
+                    content: "";
+                    display: block;
+                    height: 2em;
+                    margin: 1em calc(50% - 1px) 0px;
+                    order: 1;
+                    width: 2px;
+                    z-index: 1;
+                }
+
+                .add-button:after {
+                    background: $mid-gray;
+                    border-radius: 2px;
+                    color: $mid-gray;
+                    content: "\f078";
+                    @include flexbox();
+                    align-items: flex-end;
+                    justify-content: center;
+                    font-family: 'Font Awesome 5 Pro';
+                    font-weight: 100;
+                    height: 2em;
+                    line-height: 0em;
+                    margin: 0 calc(50% - 1px) 1em;
+                    order: 3;
+                    text-align: center;
+                    width: 2px;
+                    z-index: 1;
+                }
+
+                .added-confirmation {
+                    border-radius: 30px;
+                    @include boxshadow((3px 3px 10px rgba($dark-green, 0.2), -3px -3px 6px rgba($light-green, 0.2)));
+                    @include flexbox();
+                    opacity: 0;
+                    align-items: center;
+                    justify-content: flex-start;
+                    position: absolute;
+                    background: $light-green;
+                    color: $green;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    padding: 0.7em 0.3em;
+                    text-align: center;
+                    @include transform(translate(0px, 20px));
+                    @include transition(0.5s);
+                    width: 8em;
+                    z-index: -1;
+
+                    i {
+                        color: $green;
+                        font-size: 1.5em;
+                        margin: 0 0.5em;
+                        padding: 0;
+                    }
+                }
+
+                .added-confirmation.visible {
+                    @include flexbox();
+                    @include transform(translate(0px, 0px));
+                    @include transition(0.5s);
+                    opacity: 1;
+                    z-index: 10;
+                }
+
+                label {
+                    @include flexbox();
+                    flex-wrap: wrap;
+                    font-size: 0.8em;
+                    margin: 0.5em;
+                    text-align: center;
+                    width: 8em;
+
+                    input {
+                        border: 1px solid #d7d7d7;
+                        border-radius: 5px;
+                        font-size: 1.25em;
+                        margin: 0.2em 0;
+                        padding: 0.3em;
+                        text-align: center;
+                        width: 6em;
+                    }
+                }
+            }
+
+            #printableDoc {
+                background: $white;
+                border-radius: 5px;
+                @include boxshadow(0px 4px 8px -4px $mid-gray);
+                @include flexbox();
+                flex-wrap: wrap;
+                align-content: flex-start;
+                align-items: flex-start;
+                justify-content: flex-start;
+                min-height: 35em;
+                width: 28em;
+
+                .label-wrapper {
+                    display: block;
+                    border: 1px solid #000000;
+                    width: calc(25em * 0.33);
+                    max-height: min-content;
+
+                    .chemical-label {
+                        @include transform(scale(0.33));
+                        margin-bottom: calc(-237px * 0.67);
+                        margin-right: calc(-25em * 0.67);
+
+                        -moz-transform-origin: 0 0;
+                        -webkit-transform-origin: 0 0;
+                        transform-origin: 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only print {
+    body {
+        display: block;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    header,
+    .form-wrapper,
+    .print-wrapper {
+        display: none !important;
+    }
+
+    main {
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        #printRender {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+
+            .print-wrapper.for-printing {
+                display: block !important;
+                width: 100%;
+
+                #printableDoc {
+                    display: block;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                    height: 100%;
+                    width: 100%;
+
+                    .label-wrapper {
+                        border: none;
+                        float: left;
+                        display: block;
+                        height: min-content;
+                        page-break-inside: avoid;
+                        break-inside: avoid;
+                        width: 33%;
+
+                        .chemical-label {
+                            box-sizing: border-box;
+                            border: 1px solid #d7d7d7;
+                            float: left;
+                            page-break-inside: avoid;
+                            break-inside: avoid;
+                            @include transform(scale(0.6));
+                            margin-right: (-25em * 0.4);
+                            margin-bottom: (-237px * 0.4);
+                        }
+                    }
+
+
+                }
+
+                .label-wrapper:nth-of-type(15n) {
+                    page-break-after: always;
+                    break-after: always;
+                }
+
+            }
+        }
+    }
+}
